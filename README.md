@@ -1,6 +1,6 @@
 # n8n-nodes-contextqa
 
-Native ContextQA REST API node for n8n. This is a **development package**, not an n8n-verified node. The supplied OpenAPI contract was used to implement the requests. Build, lint, and mocked safety tests pass; authenticated REST and n8n runtime tests are still pending a scoped non-production token and a local test instance.
+Native ContextQA REST API node for n8n. This is a **development package**, not an n8n-verified node. The supplied OpenAPI contract was used to implement the requests. Build, lint, and mocked safety tests pass. The package has also been loaded into an isolated n8n 2.44.6 runtime; authenticated live REST validation remains pending a scoped non-production token.
 
 ## Operations
 
@@ -35,7 +35,7 @@ npm test
 npm pack --ignore-scripts
 ```
 
-Dependencies are development-only; the runtime uses n8n's HTTP helpers. Tests use mocked requests and never execute real ContextQA runs. `npm run dev` uses the official n8n node tool and needs Docker/Podman for its test instance. No runtime instance was started during preparation because neither is installed in the preparation environment.
+Dependencies are development-only; the runtime uses n8n's HTTP helpers. Tests use mocked requests and never execute real ContextQA runs. `npm run dev` uses the official n8n node tool and needs Docker/Podman for its test instance. An isolated npm-installed n8n 2.44.6 runtime is also used for validation without Docker.
 
 For self-hosted development, build and load this package in an isolated n8n instance, create a scoped read-only credential first, and verify Get Page and Get Summary against a known existing run. A paid Start Run test needs explicit approval for a designated disposable test plan. Never test an execution action simply to verify credentials.
 
@@ -54,7 +54,7 @@ Hosted MCP docs (separate integration): https://mcp.contextqa.com/docs
 
 Support: support@contextqa.com
 
-The connected GitHub app cannot upload active workflow files with its current scope. CI and provenance-publishing examples are stored under docs/ci-examples/ as inactive text. A repository administrator must install them as active workflows after reviewing them. No CI run or npm publish is claimed.
+Active CI and provenance publication workflows are installed in .github/workflows. Hosted build, lint, and mocked checks pass. Publication is performed only through the release workflow; a source PR or a passing build does not mean the package is published or verified by n8n.
 
 ## Example workflows
 
