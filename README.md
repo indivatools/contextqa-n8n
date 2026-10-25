@@ -53,3 +53,5 @@ Public API collection: https://www.postman.com/deep-2dbadbf7-2980737/workspace/c
 Hosted MCP docs (separate integration): https://mcp.contextqa.com/docs
 
 Support: support@contextqa.com
+
+The connected GitHub app cannot upload active workflow files with its current scope. CI and provenance-publishing examples are stored under docs/ci-examples/ as inactive text. A repository administrator must install them as active workflows after reviewing them. No CI run or npm publish is claimed.
