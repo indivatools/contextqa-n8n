@@ -16,11 +16,11 @@ Sign up at https://ship.contextqa.com/ using your chosen non-Google sign-in meth
 
 Required permissions:
 
-| Use | Permission |
-| --- | --- |
-| Credential test and Get Page | `TEST_PLANS_READ` |
-| Start Run | `TEST_PLAN_EXECUTE` |
-| Get Summary | `TEST_PLAN_RESULTS_READ` |
+| Use                          | Permission               |
+| ---------------------------- | ------------------------ |
+| Credential test and Get Page | `TEST_PLANS_READ`        |
+| Start Run                    | `TEST_PLAN_EXECUTE`      |
+| Get Summary                  | `TEST_PLAN_RESULTS_READ` |
 
 The limit is 120 requests/minute/token. On throttling, wait for the server's Retry-After interval. For a failed Start Run, inspect existing runs before manually trying again; the request may already have started a run. The node deliberately does not retry. REST tokens are separate from MCP OAuth; this package is not an MCP wrapper and does not cover the separate ContextAI product.
 
@@ -55,3 +55,13 @@ Hosted MCP docs (separate integration): https://mcp.contextqa.com/docs
 Support: support@contextqa.com
 
 The connected GitHub app cannot upload active workflow files with its current scope. CI and provenance-publishing examples are stored under docs/ci-examples/ as inactive text. A repository administrator must install them as active workflows after reviewing them. No CI run or npm publish is claimed.
+
+## Example workflows
+
+Import the credential-free JSON files in [examples](./examples) into an isolated n8n instance after installing the package, then select your own ContextQA API credential:
+
+- `list-test-plans.json`: manual trigger → first plan page (read-only).
+- `review-existing-run.json`: enter an existing Run ID to read its summary (read-only).
+- `start-approved-test-plan.json`: enter the intended Test Plan ID and explicitly enable approval before use. Approval defaults to false; Retry On Fail is disabled. Running this example can incur charges.
+
+All examples are inactive and contain no credentials, live IDs, schedules, or customer data. Keep reading the original run ID rather than starting another run while waiting for completion.
