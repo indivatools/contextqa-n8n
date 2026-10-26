@@ -12,7 +12,7 @@ export class ContextQaApi implements ICredentialType {
 		dark: 'file:../nodes/ContextQa/contextqa.svg',
 	} as const;
 	displayName = 'ContextQA API';
-	documentationUrl = 'https://github.com/indivatools/n8n-nodes-contextqa#credentials';
+	documentationUrl = 'https://github.com/indivatools/contextqa-n8n#credentials';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Token',
