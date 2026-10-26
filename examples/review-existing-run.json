@@ -1,0 +1,44 @@
+{
+	"name": "ContextQA \u2014 Review an existing run",
+	"nodes": [
+		{
+			"parameters": {},
+			"id": "manual",
+			"name": "Manual Trigger",
+			"type": "n8n-nodes-base.manualTrigger",
+			"typeVersion": 1,
+			"position": [0, 0]
+		},
+		{
+			"parameters": {
+				"resource": "run",
+				"operation": "getSummary",
+				"runId": ""
+			},
+			"id": "contextqa",
+			"name": "ContextQA",
+			"type": "n8n-nodes-contextqa.contextQa",
+			"typeVersion": 1,
+			"position": [260, 0],
+			"retryOnFail": false
+		}
+	],
+	"connections": {
+		"Manual Trigger": {
+			"main": [
+				[
+					{
+						"node": "ContextQA",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		}
+	},
+	"settings": {
+		"executionOrder": "v1"
+	},
+	"active": false,
+	"pinData": {}
+}
